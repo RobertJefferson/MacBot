@@ -5,7 +5,7 @@ from discord.ext.commands import Bot
 from discord.voice_client import VoiceClient
 from random import randint
 
-#mods = ["400055843787243531"]
+mods = ["400055843787243531"]
 rando = randint(1,9)
 bypass_list = [""]
 chat_filter = ["OOGIEPOOGIENIGGERNOGGER"]
@@ -44,7 +44,13 @@ async def on_message(message):
     if message.content.upper().startswith('.HELLO'):
         await bot.send_message(message.channel,"Hello {0.author.mention}! :wave:".format(message))
         
+    if message.content.upper().startswith('.HI'):
+        await bot.send_message(message.channel,"Hello {0.author.mention}! :wave:".format(message))        
+        
     if message.content.upper().startswith('.BYE'):
+        await bot.send_message(message.channel,"Hope to see you again soon {0.author.mention}! ;o;".format(message))
+        
+    if message.content.upper().startswith('.GOODBYE'):
         await bot.send_message(message.channel,"Hope to see you again soon {0.author.mention}! ;o;".format(message))
 
     if message.content.upper().startswith('.RULES'):
@@ -114,6 +120,7 @@ async def say(ctx, *args):
 
 @bot.command(pass_context = True)
 async def report(ctx, *args):
+    """Usage: .report (@name and cause)"""
     mesg = ' '.join(args)
     me = await bot.get_user_info('400055843787243531')
     await bot.send_message(me, "The user {0.author.mention} has reported: {1}".format(ctx.message, mesg))
@@ -123,6 +130,9 @@ async def report(ctx, *args):
 
     nick = await bot.get_user_info('263777506799124481')
     await bot.send_message(nick, "The user {0.author.mention} has reported: {1}".format(ctx.message, mesg))
+    
+    rehan = await bot.getuser_info('310045671094747136')
+    await bot.send_message(rehan, "The user {0.author.mention} has reported: {1}".format(ctx.message, mesg))
     
     await bot.delete_message(ctx.message)
 
@@ -157,6 +167,10 @@ async def yt(ctx):
 @bot.command(pass_context=True)
 async def spam(ctx):
     """A naughty command."""
+    
+@bot.command(pass_context=True)
+async def ping(ctx):
+    """PONG"""
 
 
 
@@ -166,6 +180,6 @@ if __name__ == "__main__":
                 bot.load_extension(extension)
             except Exception as e:
                 exc = '(): ()'.format(type(e).__name__, e)
-                print('Failed to load extension ()\n()'.format(extension, exc))
-                
+print('Failed to load extension ()\n()'.format(extension, exc))
+
 bot.run("NDg4MjIyNzIwMTgyNDUyMjcy.DnZFvQ.oFV6Xq_Nl3QLD13tncwgu_zw8Lg")
