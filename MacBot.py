@@ -14,12 +14,14 @@ bot = commands.Bot(".")
 
 #459871164974628886 - living room
 #436290304606339073 - inkopolis plaza
+#474093768774254595 - Mac's server
+
 @bot.event
 async def on_ready():
     rando
     print("Bot Online")
     print(rando)
-    await bot.change_presence(game=discord.Game(name="with Rob's deek"))
+    await bot.change_presence(game=discord.Game(name="with Rob"))
     #await bot.send_message(discord.Object(id='459871164974628886'), "Version 1.3.0")
    
 class Main_Commands():
@@ -29,6 +31,24 @@ class Main_Commands():
 
 @bot.event
 async def on_message(message):
+
+#@bot.event
+#async def on_message(message):
+    #if message.content.upper().startswith('.SHUTDOWN'):
+        #if message.author.id == "400055843787243531":
+            #await bot.send_message(message.channel,"Goodbye Saucefam!")
+        #else:
+            #await bot.send_message(message.channel,"You are not Robert Jefferson.")
+    contents = message.content.split(" ")
+    for word in contents:
+        if word.upper() in chat_filter:
+            if not message.author.id in bypass_list:
+                try:
+                    await bot.delete_message(message)
+                    await bot.send_message(message.channel, "Please {0.author.mention}, don't use racial slur!".format(message))
+                except discord.errors.NotFound:
+                    return
+    
     #if message.content.upper().startswith('.REPORT'):
         #if message.author == bot.user:
             #return
