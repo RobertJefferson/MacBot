@@ -129,7 +129,7 @@ async def report(ctx, *args):
     mac = await bot.get_user_info('414484144115154945')
     await bot.send_message(mac, "The user {0.author.mention} has reported: {1}".format(ctx.message, mesg))
     
-    await bot.delete_message(ctx.message)
+    #await bot.delete_message(ctx.message)
 
 @bot.command(pass_context=True)
 async def hello(ctx):
