@@ -5,7 +5,7 @@ from discord.ext.commands import Bot
 from discord.voice_client import VoiceClient
 from random import randint
 
-mods = ["400055843787243531"]
+#mods = ["400055843787243531"]
 rando = randint(1,9)
 bypass_list = [""]
 chat_filter = ["OOGIEPOOGIENIGGERNOGGER"]
@@ -19,7 +19,7 @@ async def on_ready():
     rando
     print("Bot Online")
     print(rando)
-    await bot.change_presence(game=discord.Game(name="Splatoon 2"))
+    await bot.change_presence(game=discord.Game(name="with Rob's deek"))
     #await bot.send_message(discord.Object(id='459871164974628886'), "Version 1.3.0")
    
 class Main_Commands():
@@ -168,4 +168,5 @@ if __name__ == "__main__":
                 exc = '(): ()'.format(type(e).__name__, e)
                 print('Failed to load extension ()\n()'.format(extension, exc))
                 
-bot.run("NDYwOTQwNTg3NTUwNTA3MDY3.DhMgGQ.3CVkea3M2zYl5Wul4E3Fd6ER-iE")
+bot.run("NDg4MjIyNzIwMTgyNDUyMjcy.DnZE6A.Byxv0FZY9p1RxhMw7ffDo6wnzZc
+")
