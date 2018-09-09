@@ -1,1 +1,1 @@
-worker: python Macbot.py
+worker: python MacBot.py
