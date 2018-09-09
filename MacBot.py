@@ -122,8 +122,12 @@ async def say(ctx, *args):
 async def report(ctx, *args):
     """Usage: .report (@name and cause)"""
     mesg = ' '.join(args)
+    
     me = await bot.get_user_info('400055843787243531')
     await bot.send_message(me, "The user {0.author.mention} has reported: {1}".format(ctx.message, mesg))
+    
+    mac = await bot.get_user_info('414484144115154945')
+    await bot.send_message(mac, "The user {0.author.mention} has reported: {1}".format(ctx.message, mesg))
     
     await bot.delete_message(ctx.message)
 
