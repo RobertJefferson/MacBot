@@ -8,7 +8,7 @@ from random import randint
 mods = ["400055843787243531"]
 rando = randint(1,9)
 bypass_list = [""]
-chat_filter = ["OOGIEPOOGIENIGGERNOGGER"]
+chat_filter = ["OOGIEPOOGIENIGGERNOGGER","MAC IS UGLY"]
 startup_extensions = ["Music"]
 bot = commands.Bot(".")
 
