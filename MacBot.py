@@ -1,5 +1,6 @@
 import discord
 import time
+import asyncio
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord.voice_client import VoiceClient
@@ -9,7 +10,7 @@ mods = ["400055843787243531"]
 rando = randint(1,9)
 bypass_list = [""]
 chat_filter = ["OOGIEPOOGIENIGGERNOGGER","MAC IS UGLY"]
-startup_extensions = ["Music"]
+#startup_extensions = ["Music"]
 bot = commands.Bot(".")
 
 #459871164974628886 - living room
@@ -24,9 +25,9 @@ async def on_ready():
     await bot.change_presence(game=discord.Game(name="with Rob"))
     #await bot.send_message(discord.Object(id='459871164974628886'), "Version 1.3.0")
    
-class Main_Commands():
-    def __init__(self, bot):
-        self.bot = bot
+#class Main_Commands():
+    #def __init__(self, bot):
+        #self.bot = bot
 
 
 @bot.event
@@ -73,39 +74,6 @@ async def on_message(message):
     if message.content.upper().startswith('.GOODBYE'):
         await bot.send_message(message.channel,"Hope to see you again soon {0.author.mention}! ;o;".format(message))
 
-    if message.content.upper().startswith('.RULES'):
-        await bot.send_message(message.channel," #1 - Be respectul and kind towards others here. Anyone caught harassing or insulting others will receive a warning followed by a kick. \n #2 Dont advertise. Just dont. Its rude and annoying. \n #3 Keep all adult and nudity content away from here. Immediate ban for anyone posting obscenities. ")
-
-    if message.content.upper().startswith('.RULE1'):
-        await bot.send_message(message.channel,"#1 - Be respectul and kind towards others here. Anyone caught harassing or insulting others will receive a warning followed by a kick. ")
-
-    if message.content.upper().startswith('.RULE 1'):
-        await bot.send_message(message.channel,"#1 - Be respectul and kind towards others here. Anyone caught harassing or insulting others will receive a warning followed by a kick. ")
-
-    if message.content.upper().startswith('.RULE2'):
-        await bot.send_message(message.channel,"#2 Dont advertise. Just dont. Its rude and annoying.")
-
-    if message.content.upper().startswith('.RULE 2'):
-        await bot.send_message(message.channel,"#2 Dont advertise. Just dont. Its rude and annoying.")
-
-    if message.content.upper().startswith('.RULE3'):
-        await bot.send_message(message.channel,"#3 Keep all adult and nudity content away from here. Immediate ban for anyone posting obscenities. ")
-
-    if message.content.upper().startswith('.RULE 3'):
-        await bot.send_message(message.channel,"#3 Keep all adult and nudity content away from here. Immediate ban for anyone posting obscenities. ")
-
-    #if message.content.upper().startswith('.RULE4'):
-        #await bot.send_message(message.channel,"#4 Please do not spam in the server. It is rude and unnecessary.")
-
-    #if message.content.upper().startswith('RULE 4'):
-        #await bot.send_message(message.channel,"##4 Please do not spam in the server. It is rude and unnecessary.")
-
-    if message.content.upper().startswith('.YT'):
-        await bot.send_message(message.channel,"https://www.youtube.com/channel/UCel2B-6wZhvQHRAKXmpm1Ew")
-
-    if message.content.upper().startswith('.YOUTUBE'):
-        await bot.send_message(message.channel,"https://www.youtube.com/channel/UCel2B-6wZhvQHRAKXmpm1Ew")
-
     if message.content.upper().startswith('.PING'):
         await bot.send_message(message.channel,"PONG {0.author.mention}".format(message))
         
@@ -135,6 +103,11 @@ async def info(ctx):
 @bot.command(pass_context = True)
 async def say(ctx, *args):
     mesg = ' '.join(args)
+    if message.author.id == "400055843787243531":
+        await bot.delete_message(ctx.message)
+        return await bot.say(mesg)
+    else:
+        await bot.send_message(message.channel,"You are not Robert Jefferson.")
     await bot.delete_message(ctx.message)
     return await bot.say(mesg)
 
@@ -158,26 +131,6 @@ async def hello(ctx):
 @bot.command(pass_context=True)
 async def bye(ctx):
     """Say your goodbyes to the bot..."""
-    
-@bot.command(pass_context=True)
-async def rules(ctx):
-    """Shows da rulez."""
-    
-@bot.command(pass_context=True)
-async def rule1(ctx):
-    """Shows rule 1."""
-    
-@bot.command(pass_context=True)
-async def rule2(ctx):
-    """Shows rule 2."""
-    
-@bot.command(pass_context=True)
-async def rule3(ctx):
-    """Shows rule 3."""
-    
-@bot.command(pass_context=True)
-async def yt(ctx):
-    """Link to Eddie's YouTube channel."""
 
 @bot.command(pass_context=True)
 async def spam(ctx):
@@ -189,12 +142,12 @@ async def ping(ctx):
 
 
 
-if __name__ == "__main__":
-        for extension in startup_extensions:
-            try:
-                bot.load_extension(extension)
-            except Exception as e:
-                exc = '(): ()'.format(type(e).__name__, e)
-print('Failed to load extension ()\n()'.format(extension, exc))
+#if __name__ == "__main__":
+        #for extension in startup_extensions:
+            #try:
+                #bot.load_extension(extension)
+            #except Exception as e:
+                #exc = '(): ()'.format(type(e).__name__, e)
+#print('Failed to load extension ()\n()'.format(extension, exc))
 
 bot.run("NDg4MjIyNzIwMTgyNDUyMjcy.DnZFvQ.oFV6Xq_Nl3QLD13tncwgu_zw8Lg")
