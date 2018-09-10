@@ -139,7 +139,7 @@ async def ping(ctx):
 @bot.command(pass_context=True)
 async def rape(ctx, *args):
     mesg = ' '.join(args)
-    return await bot.say("You have raped ", mesg)
+    return await bot.say(mesg)
     
 
 
