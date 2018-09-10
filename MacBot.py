@@ -126,8 +126,8 @@ async def on_message(message):
 @bot.command(pass_context=True)
 async def info(ctx):
     """Information about the bot"""
-    embed=discord.Embed(title="The first Saucefam bot!", description="Functions: Being fun and playing music.", color=0x00FF00)
-    embed.set_author(name="WIREDuardo")
+    embed=discord.Embed(title="A bot based on the world's best girlfriend.", description="Functions: Loving Rob.", color=0x00FF00)
+    embed.set_author(name="MacBot")
     embed.set_footer(text="Created by Robert Jefferson")
     await bot.say(embed=embed)
     print("Information accesed")
