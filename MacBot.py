@@ -21,8 +21,9 @@ bot = commands.Bot(".")
 async def on_ready():
     rando
     print("Bot Online")
-    print(rando)
     await bot.change_presence(game=discord.Game(name="with Rob"))
+    me = await bot.get_user_info('400055843787243531')
+    await bot.send_message(me, "The bot has restarted".format(ctx.message))
     #await bot.send_message(discord.Object(id='459871164974628886'), "Version 1.3.0")
    
 #class Main_Commands():
