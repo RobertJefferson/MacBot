@@ -9,7 +9,7 @@ from random import randint
 mods = ["400055843787243531"]
 rando = randint(1,9)
 bypass_list = [""]
-chat_filter = ["OOGIEPOOGIENIGGERNOGGER","MAC IS UGLY"]
+chat_filter = ["OOGIEPOOGIENIGGERNOGGER"]
 #startup_extensions = ["Music"]
 bot = commands.Bot(".")
 
@@ -23,7 +23,7 @@ async def on_ready():
     print("Bot Online")
     await bot.change_presence(game=discord.Game(name="with Rob"))
     me = await bot.get_user_info('400055843787243531')
-    await bot.send_message(me, "The bot has restarted".format(ctx.message))
+    await bot.send_message(me, "The bot has restarted.")#.format(ctx.message))
     #await bot.send_message(discord.Object(id='459871164974628886'), "Version 1.3.0")
    
 #class Main_Commands():
