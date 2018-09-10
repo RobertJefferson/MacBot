@@ -103,11 +103,6 @@ async def info(ctx):
 @bot.command(pass_context = True)
 async def say(ctx, *args):
     mesg = ' '.join(args)
-    if message.author.id == "400055843787243531":
-        await bot.delete_message(ctx.message)
-        return await bot.say(mesg)
-    else:
-        await bot.send_message(message.channel,"You are not Robert Jefferson.")
     await bot.delete_message(ctx.message)
     return await bot.say(mesg)
 
