@@ -147,4 +147,4 @@ async def ping(ctx):
 #print('Failed to load extension ()\n()'.format(extension, exc))
 
 bot.run("NDg4MjIyNzIwMTgyNDUyMjcy.DnZFvQ.oFV6Xq_Nl3QLD13tncwgu_zw8Lg")
-#end
+#code ends here
